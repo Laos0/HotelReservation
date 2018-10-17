@@ -12,22 +12,31 @@ public class HotelReservation {
     private String city = "";
     private String phone = "";
     private String eMail = "";
+    private String checkIN = "";
+    private String checkOUT = "";
 
 
     // private and public methods
-    private String checkIn(String str) {
-        String checkInDate = str;
-        return checkInDate;
+    public void setCheckIn(String checkIn) {
+        this.checkIN = checkIn;
+    }
+    public String getCheckIN(){
+        return checkIN;
     }
 
-    private String checkOut(String str){
-        String checkOutDate = str;
-        return checkOutDate;
+    public void setCheckOut(String checkOut){
+        this.checkOUT = checkOut;
+    }
+    public String getCheckOut(){
+        return checkOUT;
     }
     // Fix this opne later getter and setter
-    public String setRoomType(){
+    public String getRoomType(){
 
-        return "";
+        return roomType;
+    }
+    public void setRoomType(String roomType){
+        this.roomType = roomType;
     }
 
     public void setName(String name){
@@ -72,12 +81,34 @@ public class HotelReservation {
         return eMail;
     }
 
+    public void setAdults(int adults){
+        this.adults = adults;
+    }
+    public int getAdults(){
+        return adults;
+    }
+
+    public void setChildren(int children){
+        this.children = children;
+    }
+    public int getChildren(){
+        return children;
+    }
+
+    public void setRoom(int room){
+        this.rooms = room;
+    }
+    public int getRoom(){
+        return rooms;
+    }
+
     public HotelReservation(){
 
     }
 
     public String toString(){
         return "The number of adults: " + adults + "\n" + "The number of children: " + children + "\n" + "The Number of rooms: " + rooms + "\n" +
+                "Check-in: " + checkIN + "\n" + "Check-out: " + checkOUT + "\n" +
                 "The room type: " + roomType + "\n" + "Name: " + name + "\n" +
                 "Street: " + street + "\n" + "State: " + state + "\n" +
                 "City: " + city + "\n" + "Phone: " + phone + "\n" + "Email: " + eMail;

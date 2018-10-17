@@ -16,18 +16,47 @@
             android:textSize="20sp"
             android:text="GuestTab"
             />
-        <Button
-            android:id="@+id/guest_button"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onButtonPressed"
-            android:text="CLICK ME"
+            android:textSize="12sp"
+            android:text="Please eneter the amount of guest(s) on each category"
+            />
+        <EditText
+            android:id="@+id/adult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of adults"
+            />
+        <EditText
+            android:id="@+id/children"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of children under 18"
+            />
+        <EditText
+            android:id="@+id/numOfRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of rooms"
+            />
+        <EditText
+            android:id="@+id/checkIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter date of check-in"
+            />
+        <EditText
+            android:id="@+id/checkOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Eneter date of check-out"
             />
         <TextView
-            android:id="@+id/text_view"
+            android:id="@+id/guestOutPut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Click button to update this text"
+            android:text=""
             />
     </LinearLayout>
 

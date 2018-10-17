@@ -4,11 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -57,7 +60,7 @@ public class GuestFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         String tag = "GuestFragment";
-        Log.i(tag,"onCreate");
+        Log.i(tag, "onCreate");
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -68,35 +71,35 @@ public class GuestFragment extends Fragment {
     @Override
     public void onDestroy() {
         String tag = "GuestFragment";
-        Log.i(tag,"onDestroy");
+        Log.i(tag, "onDestroy");
         super.onDestroy();
     }
 
     @Override
     public void onDestroyView() {
         String tag = "GuestFragment";
-        Log.i(tag,"onDestroyView");
+        Log.i(tag, "onDestroyView");
         super.onDestroyView();
     }
 
     @Override
     public void onStop() {
         String tag = "GuestFragment";
-        Log.i(tag,"onStop");
+        Log.i(tag, "onStop");
         super.onStop();
     }
 
     @Override
     public void onPause() {
         String tag = "GuestFragment";
-        Log.i(tag,"onPause");
+        Log.i(tag, "onPause");
         super.onPause();
     }
 
     @Override
     public void onResume() {
         String tag = "GuestFragment";
-        Log.i(tag,"onResume");
+        Log.i(tag, "onResume");
         super.onResume();
     }
 
@@ -104,20 +107,184 @@ public class GuestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         String tag = "GuestFragment";
-        Log.i(tag,"onCreateView");
+        Log.i(tag, "onCreateView");
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_guest, container, false);
 
         // ---------------- IMPLEMENT THESE COMMENTS BELOW -----------------------------------
-         Button guestButton = (Button) view.findViewById(R.id.guest_button);
-         guestButton.setOnClickListener(new View.OnClickListener(){
-             public void onClick(View v){
-                 mListener.onFragmentInteraction("Did this make it to MainActivity?");
-                 String returnedFromMain = ((MainActivity)getActivity()).getShareInFragments();
-                 TextView tv2 = (TextView)view.findViewById(R.id.text_view);
-                 tv2.setText((returnedFromMain));
-             }
-            });
+        //Button guestButton = (Button) view.findViewById(R.id.guest_button);
+        final EditText adultEdit = view.findViewById(R.id.adult);
+        final EditText childrenEdit = view.findViewById(R.id.children);
+        final EditText roomEdit = view.findViewById(R.id.numOfRoom);
+        final EditText checkInEdit = view.findViewById(R.id.checkIn);
+        final EditText checkOutEdit = view.findViewById(R.id.checkOut);
+
+        final TextView outPut = view.findViewById(R.id.guestOutPut);
+/*
+        guestButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListener.onFragmentInteraction("Did this make it to MainActivity?");
+                String returnedFromMain = ((MainActivity) getActivity()).shareInFragments;
+                //TextView tv2 = (TextView)view.findViewById(R.id.text_view);
+                //tv2.setText((returnedFromMain));
+            }
+        });
+*/
+        adultEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                String tag = "beforeTextChanged";
+                Log.i(tag, "beforeTextChanged");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String tag = "onTextChanged";
+                Log.i(tag, "onTextChanged");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //String tag = "afterTextChanged";
+                //Log.i(tag, "afterTextChanged");
+                String str = adultEdit.getText().toString();
+
+                if (!str.isEmpty()) {
+                    try {
+                        int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setAdults(numOfA);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        outPut.setText((displayR));
+                    } catch (Exception e) {
+
+                    }
+                } else {
+
+                }
+
+            }
+
+
+        });
+
+        childrenEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = childrenEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setChildren(numOfA);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        outPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        roomEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = roomEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setRoom(numOfA);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        outPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        checkInEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = checkInEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setCheckIn(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        outPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        checkOutEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = checkOutEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setCheckOut(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        outPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
         return view;
     }
 
@@ -131,7 +298,7 @@ public class GuestFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         String tag = "GuestFragment";
-        Log.i(tag,"onAttach");
+        Log.i(tag, "onAttach");
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;

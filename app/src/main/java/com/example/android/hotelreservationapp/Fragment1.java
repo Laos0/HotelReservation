@@ -4,10 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -67,7 +71,192 @@ public class Fragment1 extends Fragment {
         String tag = "Fragment1";
         Log.i(tag,"onCreateView");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment1, container, false);
+        final View view = inflater.inflate(R.layout.fragment_fragment1, container, false);
+        final EditText nameEdit = view.findViewById(R.id.name);
+        final EditText streetEdit = view.findViewById(R.id.street);
+        final EditText stateEdit = view.findViewById(R.id.state);
+        final EditText cityEdit = view.findViewById(R.id.city);
+        final EditText phoneEdit = view.findViewById(R.id.phone);
+        final EditText emailEdit = view.findViewById(R.id.email);
+        final TextView personalOutPut = view.findViewById(R.id.personalOutPut);
+
+        nameEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = nameEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setName(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+
+                }
+            }
+        });
+
+        streetEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = streetEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setStreet(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        cityEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = cityEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setCity(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        stateEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = stateEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setState(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        phoneEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = phoneEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setPhone(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+        emailEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = emailEdit.getText().toString();
+                if (!str.isEmpty()) {
+                    try {
+                        //int numOfA = Integer.parseInt(str);
+                        mListener.onFragmentInteraction(str);
+                        String returnFromMain = ((MainActivity) getActivity()).shareInFragments;
+                        ((MainActivity) getActivity()).hR.setEmail(str);
+                        String displayR = ((MainActivity) getActivity()).hR.toString();
+                        personalOutPut.setText((displayR));
+                    } catch (Exception e) {
+                    }
+                } else {
+                }
+            }
+        });
+
+
+        return view;
     }
 
     @Override

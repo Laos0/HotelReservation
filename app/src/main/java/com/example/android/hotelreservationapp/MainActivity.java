@@ -129,10 +129,13 @@ public class MainActivity extends AppCompatActivity implements GuestFragment.OnF
         return super.onOptionsItemSelected(item);
     }
 
+    public void setRoomType(String str){
+        hR.setRoomType(str);
+    }
     @Override
     public void onFragmentInteraction(String string) {
         shareInFragments = string;
-        shareInFragments += " Yes You Did!";
+        //shareInFragments += " Yes You Did!";
     }
 
     public String getShareInFragments() {

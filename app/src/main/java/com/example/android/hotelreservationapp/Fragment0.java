@@ -126,7 +126,7 @@ public class Fragment0 extends Fragment {
 
 
         final Spinner spinner = (Spinner) view.findViewById(R.id.roomType);
-        String[] roomType = {"Single", "Double", "King", "Queen", "Suite"};
+        String[] roomType = {"Single - one bed", "Double - two bed", "King - 1 large bed", "Queen - 1 medium bed", "Suite - luxurious experience"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, roomType);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
@@ -143,8 +143,9 @@ public class Fragment0 extends Fragment {
                 mListener.onFragmentInteraction(roomType);
                 String returnedFromMain = ((MainActivity)getActivity()).getShareInFragments();
                 TextView descript = (TextView)view.findViewById(R.id.description);
-                descript.setText((returnedFromMain));
-
+                ((MainActivity)getActivity()).setRoomType(returnedFromMain);
+                String displayR = ((MainActivity)getActivity()).hR.toString();
+                descript.setText((displayR));
             }
 
             @Override
