@@ -123,8 +123,6 @@ public class Fragment0 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_fragment0, container, false);
         //Button confirmBtn = view.findViewById(R.id.confirmButton);
         final TextView description = view.findViewById(R.id.description);
-
-
         final Spinner spinner = (Spinner) view.findViewById(R.id.roomType);
         String[] roomType = {"Single - one bed", "Double - two bed", "King - 1 large bed", "Queen - 1 medium bed", "Suite - luxurious experience"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, roomType);

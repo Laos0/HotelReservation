@@ -1,5 +1,6 @@
 package com.example.android.hotelreservationapp;
 
+import android.renderscript.ScriptGroup;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements GuestFragment.OnFragmentInteractionListener, Fragment0.OnFragmentInteractionListener, Fragment1.OnFragmentInteractionListener, Fragment2.OnFragmentInteractionListener {
@@ -37,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements GuestFragment.OnF
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    public void hideSoftKeyboard(){
+        if(getCurrentFocus() != null){
+            InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
+        }
+    }
     @Override
     protected void onStart() {
         String tag = "MainActivity";

@@ -118,8 +118,9 @@ public class GuestFragment extends Fragment {
         final EditText roomEdit = view.findViewById(R.id.numOfRoom);
         final EditText checkInEdit = view.findViewById(R.id.checkIn);
         final EditText checkOutEdit = view.findViewById(R.id.checkOut);
-
         final TextView outPut = view.findViewById(R.id.guestOutPut);
+        String hotelRDes = ((MainActivity)getActivity()).hR.toString();
+        outPut.setText(hotelRDes);
 /*
         guestButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

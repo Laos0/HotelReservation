@@ -80,6 +80,8 @@ public class Fragment1 extends Fragment {
         final EditText emailEdit = view.findViewById(R.id.email);
         final TextView personalOutPut = view.findViewById(R.id.personalOutPut);
 
+        String hotelRDes = ((MainActivity)getActivity()).hR.toString();
+        personalOutPut.setText(hotelRDes);
         nameEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

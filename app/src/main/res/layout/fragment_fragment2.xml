@@ -10,7 +10,36 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="The Ritz Paris"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="15 Place Vendôme, 75001 Paris, France"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ritz"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="One of the best well-known hotel in Paris.  The hotel is ranked as number one in Europe.  Ritz Paris was founded in 1898, by Cesar Ritz.  The hotel currently has 159 rooms. This hotel is usually first pick by many Hollywood stars.  Inside the guest rooms is feature by colorful palettes, chiandeliers and fireplaces.  Other suites has more space for the guests.  "
+            />
+        <TextView
+            android:id="@+id/finalFragOutPut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            />
 
     </LinearLayout>
 
